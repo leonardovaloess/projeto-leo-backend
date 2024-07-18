@@ -1,6 +1,6 @@
 import { Router } from "express";
-import userController from "./controllers/user.controller.js";
-import loginController from "./controllers/login.controller.js";
+import userController from "./controllers/user/user.controller.js";
+import loginController from "./controllers/login/login.controller.js";
 import verifyJWT from "./services/auth.js";
 
 const routes = Router();

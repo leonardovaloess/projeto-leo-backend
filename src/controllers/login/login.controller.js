@@ -1,4 +1,4 @@
-import loginService from "../services/login.service.js";
+import loginService from "./login.service.js";
 import jwt from "jsonwebtoken";
 
 const loginController = {
@@ -15,6 +15,7 @@ const loginController = {
       return res.status(400).send("Erro ao criar conta");
     }
   },
+  
   login: async (req, res) => {
     try {
       const login = await loginService.login(req.body);
