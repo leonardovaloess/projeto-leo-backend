@@ -29,6 +29,16 @@ const userController = {
       return res.status(404).send("Usuário não encontrado");
     }
   },
+
+  getUserInfo: async (req, res) => {
+    try {
+      const user_id = req.userId;
+      const user = await userService.getUserById(user_id);
+      return res.status(200).send(user);
+    } catch (error) {
+      return res.status(404).send("Usuário não encontrado");
+    }
+  },
 };
 
 export default userController;

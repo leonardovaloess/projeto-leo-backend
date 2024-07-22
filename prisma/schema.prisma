@@ -20,8 +20,17 @@ model User {
   password String
   created_at DateTime @default(now())
   updatted_at DateTime @updatedAt
-
+  tasks Task[]
   @@map("users") // renomeia o nome da tabela
+}
+
+model Task {
+  id String @id @default(uuid())
+  title String
+  content String?
+  user_id String
+  done Boolean
+  user User @relation(fields: [user_id], references: [id])
 }
 
 model Blacklist {
