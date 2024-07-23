@@ -5,8 +5,8 @@ const loginController = {
   signUp: async (req, res) => {
     try {
       const user = await loginService.signUp(req.body);
-      
-      const token = jwt.sign({ userId: user.id }, process.env.SECRET, {
+
+      const token = jwt.sign({ userId: user.id }, "leo130406", {
         expiresIn: 5000,
       });
 
@@ -15,12 +15,12 @@ const loginController = {
       return res.status(400).send("Erro ao criar conta");
     }
   },
-  
+
   login: async (req, res) => {
     try {
       const login = await loginService.login(req.body);
       if (login) {
-        const token = jwt.sign({ userId: login.id }, process.env.SECRET, {
+        const token = jwt.sign({ userId: login.id }, "leo130406", {
           expiresIn: 5000,
         });
         return res.json({ auth: true, token, user_id: login.id });
