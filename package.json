@@ -21,7 +21,8 @@
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
     "prisma": "^5.16.2",
-    "supabase": "^1.183.5"
+    "supabase": "^1.183.5",
+    "vercel": "^35.1.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.4"
