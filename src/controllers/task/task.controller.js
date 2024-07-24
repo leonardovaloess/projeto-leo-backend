@@ -24,7 +24,7 @@ const taskController = {
 
   getCompletedTasks: async (req, res) => {
     try {
-      const tasks = await taskService.getTasks(req.userId);
+      const tasks = await taskService.getCompletedTasks(req.userId);
       return res.status(200).send(tasks);
     } catch (error) {
       return res
