@@ -22,6 +22,28 @@ const taskController = {
     }
   },
 
+  getCompletedTasks: async (req, res) => {
+    try {
+      const tasks = await taskService.getTasks(req.userId);
+      return res.status(200).send(tasks);
+    } catch (error) {
+      return res
+        .status(400)
+        .send("Não foi possivel listar as tarefas completadas");
+    }
+  },
+
+  getToDoTasks: async (req, res) => {
+    try {
+      const tasks = await taskService.getToDoTasks(req.userId);
+      return res.status(200).send(tasks);
+    } catch (error) {
+      return res
+        .status(400)
+        .send("Não foi possivel listar as tarefas para fazer");
+    }
+  },
+
   deleteTask: async (req, res) => {
     try {
       await taskService.deleteTask(req.body.id);

@@ -28,6 +28,7 @@ const loginController = {
         return res.status(404).send("Usuário ou senha incorretos");
       }
     } catch (error) {
+      console.log(error);
       return res.status(400).send("Usuário ou senha incorretos");
     }
   },

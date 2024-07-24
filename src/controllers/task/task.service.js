@@ -29,6 +29,40 @@ const taskService = {
     }
   },
 
+  getCompletedTasks: async (user_id) => {
+    try {
+      const tasks = await prisma.task.findMany({
+        where: {
+          user_id: user_id,
+          done: true,
+        },
+      });
+      // Exemplo de busca de usuários
+      return tasks;
+    } catch (error) {
+      console.log(error);
+      console.error("Erro ao buscar tarefas:");
+      throw error;
+    }
+  },
+
+  getToDoTasks: async (user_id) => {
+    try {
+      const tasks = await prisma.task.findMany({
+        where: {
+          user_id: user_id,
+          done: false,
+        },
+      });
+      // Exemplo de busca de usuários
+      return tasks;
+    } catch (error) {
+      console.log(error);
+      console.error("Erro ao buscar tarefas:");
+      throw error;
+    }
+  },
+
   deleteTask: async (task_id) => {
     await prisma.task.delete({
       where: {

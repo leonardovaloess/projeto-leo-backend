@@ -32,6 +32,10 @@ routes.post("/logout", loginController.logout);
 
 routes.get("/tasks", verifyJWT, taskController.getTasks);
 
+routes.get("/to-do-tasks", verifyJWT, taskController.getToDoTasks);
+
+routes.get("/completed-tasks", verifyJWT, taskController.getCompletedTasks);
+
 routes.post("/tasks", verifyJWT, taskController.createTask);
 
 routes.delete("/delete-task", verifyJWT, taskController.deleteTask);
