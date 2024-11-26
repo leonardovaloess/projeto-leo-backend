@@ -16,16 +16,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@prisma/client": "^5.16.2",
+    "@prisma/client": "^5.22.0",
     "cors": "^2.8.5",
     "env": "^0.0.2",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
-    "prisma": "^5.16.2",
     "supabase": "^1.183.5",
     "vercel": "^35.1.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.4"
+    "nodemon": "^3.1.4",
+    "prisma": "^5.22.0"
   }
 }

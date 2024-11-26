@@ -12,6 +12,8 @@ const loginController = {
 
       return res.status(200).json({ user, token: token });
     } catch (error) {
+      console.log("error:", error);
+
       return res.status(400).send("Erro ao criar conta");
     }
   },
