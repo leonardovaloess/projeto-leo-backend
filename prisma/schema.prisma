@@ -38,6 +38,7 @@ model Client {
   id         String   @id @default(uuid())
   user_id    String
   name       String
+  cpf        String 
   email      String
   phone_number String
   created_at DateTime @default(now())
