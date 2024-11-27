@@ -1,10 +1,18 @@
+import { createStripeCustumer } from "../../services/stripe.js";
 import loginService from "./login.service.js";
 import jwt from "jsonwebtoken";
 
 const loginController = {
   signUp: async (req, res) => {
     try {
-      const user = await loginService.signUp(req.body);
+      const customer = await createStripeCustumer({
+        email: req.body.email,
+        name: req.body.name,
+      });
+
+      console.log(customer);
+
+      const user = await loginService.signUp(req.body, customer);
 
       const token = jwt.sign({ userId: user.id }, "leo130406", {
         expiresIn: 5000,

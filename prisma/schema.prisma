@@ -22,6 +22,12 @@ model User {
   created_at           DateTime @default(now())
   updated_at           DateTime @updatedAt
   
+  // STRIPE COLUMNS
+
+  stripeSubscriptionStatus String?
+  stripeCustumerId String?
+  stripeSubscriptionId String?
+  
   clients              Client[]
   services             Service[]
   subscriptions        Subscription[]

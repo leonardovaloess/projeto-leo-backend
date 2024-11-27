@@ -1,9 +1,9 @@
 import { prisma } from "../../services/prisma.js";
 
 const loginService = {
-  signUp: async (data) => {
+  signUp: async (data, customer) => {
     const user = await prisma.user.create({
-      data,
+      data: { ...data, stripeCustumerId: customer.id },
     });
 
     return user;

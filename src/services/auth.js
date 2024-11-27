@@ -9,7 +9,6 @@ async function verifyJWT(req, res, next) {
   }
 
   jwt.verify(token, process.env.SECRET, (err, decoded) => {
-    console.log(err);
     if (err) return res.status(401).json({ error: "permissão negada2" });
 
     req.userId = decoded.userId;
