@@ -20,6 +20,6 @@ routes.post("/logout", loginController.logout);
 
 // Rota de Perfil
 
-routes.get("/profile", verifyJWT, userController.getUserById);
+routes.get("/profile", verifyJWT, userController.getProfile);
 
 export default routes;
