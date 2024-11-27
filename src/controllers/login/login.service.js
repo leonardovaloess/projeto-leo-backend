@@ -16,23 +16,14 @@ const loginService = {
       },
     });
     if (user) {
-      if(user.password !== body.password){
-        return 
+      if (user.password !== body.password) {
+        return;
       } else {
-        return user
+        return user;
       }
-
     } else {
       console.log("nao existe");
     }
-  },
-
-  logout: async (data) => {
-    await prisma.blacklist.create({
-      data: {
-        token: data,
-      },
-    });
   },
 };
 
