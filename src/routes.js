@@ -10,16 +10,6 @@ routes.get("/", (req, res) => {
   return res.json({ ok: true });
 });
 
-// Rotas de users
-
-routes.post("/users", userController.createUser);
-
-routes.get("/users", verifyJWT, userController.getUsers);
-
-routes.get("/users/:user_id", verifyJWT, userController.getUserById);
-
-routes.get("/user-info", verifyJWT, userController.getUserInfo);
-
 // Rotas de login e logout e sign up
 
 routes.post("/sign-up", loginController.signUp);
@@ -27,5 +17,9 @@ routes.post("/sign-up", loginController.signUp);
 routes.post("/login", loginController.login);
 
 routes.post("/logout", loginController.logout);
+
+// Rota de Perfil
+
+routes.get("/profile", verifyJWT, userController.getUserById);
 
 export default routes;
