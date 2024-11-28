@@ -5,6 +5,7 @@ import loginController from "./controllers/login/login.controller.js";
 import verifyJWT from "./services/auth.js";
 import checkoutController from "./controllers/checkout/checkout.controller.js";
 import clientController from "./controllers/client/client.controller.js";
+import serviceController from "./controllers/service/service.controller.js";
 
 const routes = Router();
 
@@ -45,5 +46,23 @@ routes.delete(
 );
 
 routes.put("/client/edit/:client_id", verifyJWT, clientController.editClient);
+
+// Rotas de serviços do usuário
+
+routes.post("/service/new", verifyJWT, serviceController.createService);
+
+routes.get("/service/list-all", verifyJWT, serviceController.getAllServices);
+
+routes.delete(
+  "/service/delete/:service_id",
+  verifyJWT,
+  serviceController.deleteService
+);
+
+routes.put(
+  "/service/edit/:service_id",
+  verifyJWT,
+  serviceController.editservice
+);
 
 export default routes;

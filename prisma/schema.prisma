@@ -13,7 +13,6 @@ datasource db {
   url       = env("DATABASE_URL")
 }
 
-
 model User {
   id                   String   @id @default(uuid())
   name                 String
@@ -30,7 +29,6 @@ model User {
   
   clients              Client[]
   services             Service[]
-  subscriptions        Subscription[]
   notificationLogs     NotificationLog[]
 }
 
@@ -43,9 +41,7 @@ model Client {
   phone_number String
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
-
   user       User     @relation(fields: [user_id], references: [id])
-
 }
 
 model Service {
@@ -53,27 +49,10 @@ model Service {
   user_id    String
   name       String
   description String
-  price      Float
+  price_cents Int
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
-
   user       User     @relation(fields: [user_id], references: [id])
-}
-
-
-
-
-model Subscription {
-  id                    String   @id @default(uuid())
-  user_id               String
-  stripe_subscription_id String
-  status                String
-  start_date            DateTime
-  end_date              DateTime
-  created_at            DateTime @default(now())
-  updated_at            DateTime @updatedAt
-
-  user                  User     @relation(fields: [user_id], references: [id])
 }
 
 model NotificationLog {
@@ -84,8 +63,5 @@ model NotificationLog {
   message_status String
   sent_at        DateTime
   created_at     DateTime @default(now())
-
   user           User     @relation(fields: [user_id], references: [id])
-
-
 }
