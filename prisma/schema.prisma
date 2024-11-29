@@ -30,6 +30,7 @@ model User {
   clients              Client[]
   services             Service[]
   notificationLogs     NotificationLog[]
+  pixKeys              pixKey[]
 }
 
 model Client {
@@ -54,6 +55,18 @@ model Service {
   updated_at DateTime @updatedAt
   user       User     @relation(fields: [user_id], references: [id])
 }
+
+model pixKey {
+  id                     String   @id @default(uuid())
+  user_id                String
+  key                    String
+  type_id                Int // 1, 2, 3
+  type_description       String //CPF, CELULAR, EMAIL 
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  user       User     @relation(fields: [user_id], references: [id])
+}
+
 
 model NotificationLog {
   id             String   @id @default(uuid())
